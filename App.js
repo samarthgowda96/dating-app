@@ -1,14 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import { StyleSheet, View } from 'react-native';
 import Constants from 'expo-constants';
 import TopBar from './components/TopBar'; 
+import axios from 'axios'
 
 export default function App() {
+
+  const [user, setUser] = useState([]);
+  const fetchUser = async () => {
+try {
+  const {data} = await axios.get('https://randomuser.me/api/?gender=female&results=50')
+  setUser(data.user)
+} catch (error) {
+  console.log(error)
+}
+  }
   return (
     <View style={styles.container}>
       <TopBar/>
-      <StatusBar style="auto" />
+      <View style = {styles.swipes}></View>
     </View>
   );
 }
@@ -18,4 +29,17 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Constants.statusBarHeight
   },
+  swipes: {
+    flex: 1,
+    padding: 10,
+    paddingTop: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    }, 
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  }
 });

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useRef } from 'react'
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import Constants from 'expo-constants';
 import TopBar from './components/TopBar'; 
 import axios from 'axios'
@@ -14,8 +14,13 @@ try {
   setUser(data.user)
 } catch (error) {
   console.log(error)
+  Alert.alert('Error getting users', '', [{ text: 'Retry', onPress: () => fetchUsers() }])
 }
   }
+
+  useEffect(()=> {
+      fetchUser();
+  }, [])
   return (
     <View style={styles.container}>
       <TopBar/>

@@ -11,7 +11,7 @@ export default function App() {
   const fetchUser = async () => {
 try {
   const {data} = await axios.get('https://randomuser.me/api/?gender=female&results=50')
-  setUser(data.user)
+  setUser(data.results)
 } catch (error) {
   console.log(error)
   Alert.alert('Error getting users', '', [{ text: 'Retry', onPress: () => fetchUsers() }])
@@ -22,7 +22,9 @@ try {
       fetchUser();
   }, [])
   return (
+    
     <View style={styles.container}>
+      {console.log(user)}
       <TopBar/>
       <View style = {styles.swipes}></View>
     </View>

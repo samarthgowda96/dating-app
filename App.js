@@ -47,9 +47,13 @@ export default function App() {
     swipesRef.current.openRight()
   }
 
+
+
   return (
     <View style={styles.container}>
+
       <TopBar />
+      {      console.log(users)}
       <View style={styles.swipes}>
         {users.length > 1 &&
           users.map(

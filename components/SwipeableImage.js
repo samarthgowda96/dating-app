@@ -5,8 +5,8 @@ import { FontAwesome } from '@expo/vector-icons'
 export default function SwipeableImage({ user, willLike, willPass }) {
   return (
     <View>
-      {/* <img src={user.picture.large} style={{height : "75vh"}}></img> */}// this is for the web build
-      <Image source={{uri: user.picture.large }} style={styles.photo} />
+      <img src={user.picture.large} style={{height : "75vh"}}></img>
+      {/* <Image source={{uri: user.picture.large }} style={styles.photo} /> */}
       {console.log({uri: user.picture.large } )}
       {willLike && (
         <View style={styles.likeBox}>

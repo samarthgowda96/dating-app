@@ -13,16 +13,6 @@ export default function SwipeableImage({ user, willLike, willPass }) {
   return (
     <View>
 
-      {/* Cards Added here for better visuals, INSTALL reactstarp package */}
-
-      <Card>
-        <CardImg top width="100%" height="600px" onClick={newWindow} src={user.picture.large} alt="Card image cap" />
-        <CardBody>
-        <Text style={[styles.textPrimary, styles.textShadow]}>{user.name.first}</Text>
-        <Text style={[styles.textSecondary, styles.textShadow]}>{user.dob.age}</Text>
-        </CardBody>
-      </Card>
-
       {willLike && (
         <View style={styles.likeBox}>
           <Text style={{ ...styles.textPrimary, color: '#64EDCC' }}>LIKE</Text>

@@ -1,13 +1,18 @@
 import React from 'react'
 import { View, Image, StyleSheet, Text } from 'react-native'
+import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
+
 import { FontAwesome } from '@expo/vector-icons'
 
 export default function SwipeableImage({ user, willLike, willPass }) {
+
+  function newWindow() {
+    console.log("Clicked")
+  }
+
   return (
     <View>
-      <img src={user.picture.large} style={{height : "75vh"}}></img>
-      {/* <Image source={{uri: user.picture.large }} style={styles.photo} /> */}
-      {console.log({uri: user.picture.large } )}
+
       {willLike && (
         <View style={styles.likeBox}>
           <Text style={{ ...styles.textPrimary, color: '#64EDCC' }}>LIKE</Text>
@@ -18,16 +23,6 @@ export default function SwipeableImage({ user, willLike, willPass }) {
           <Text style={{ ...styles.textPrimary, color: '#F06795' }}>NOPE</Text>
         </View>
       )}
-      <View style={styles.textContainer}>
-        <View style={styles.textRow}>
-          <Text style={[styles.textPrimary, styles.textShadow]}>{user.name.first}</Text>
-          <Text style={[styles.textSecondary, styles.textShadow]}>{user.dob.age}</Text>
-        </View>
-        <View style={styles.textRow}>
-          <FontAwesome name="map-marker" size={20} color="white"></FontAwesome>
-          <Text style={[styles.textSecondary, styles.textShadow]}>{user.location.city}</Text>
-        </View>
-      </View>
     </View>
   )
 }

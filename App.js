@@ -67,7 +67,6 @@ export default function App() {
           )}
       </View>
       <BottomBar handleLikePress={handleLikePress} handlePassPress={handlePassPress} />
-      {console.log(currentIndex)}
     </View>
   )
 }
